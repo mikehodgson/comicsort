@@ -1,6 +1,7 @@
 class Book {
   publisher: string = "";
   series: string = "";
+  sort_name: string = "";
   issue: number = 0;
   release_date: Date = new Date();
   variant: string = "";
@@ -13,6 +14,7 @@ class Book {
       ? new Date(data["Release Date"])
       : new Date();
     this.variant = data["Variant"] ? data["Variant"] : "";
+    this.sort_name = this.series.replace(new RegExp(/^the\s*/, "ig"), "");
   }
 }
 
