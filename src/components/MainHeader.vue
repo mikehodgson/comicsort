@@ -6,4 +6,5 @@ import AppConstants from "../data/constants";
   <h1 class="text-3xl font-bold mb-4">
     {{ AppConstants.APPNAME }} {{ AppConstants.VERSION }}
   </h1>
+  <hr class="mb-4 border-blue-700" />
 </template>
