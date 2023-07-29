@@ -9,7 +9,7 @@ class Book {
   constructor(data: any) {
     this.publisher = data["Publisher"] ? data["Publisher"] : "";
     this.series = data["Series"] ? data["Series"] : "";
-    this.issue = data["Issue No."] ? data["Issue No."] : 1;
+    this.issue = data["Issue"] || data["Issue No."] || 1;
     this.release_date = data["Release Date"]
       ? new Date(data["Release Date"])
       : new Date();

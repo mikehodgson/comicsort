@@ -18,8 +18,10 @@ export default {
   emits: ["fileSelected"],
   methods: {
     fileChanged: function (evt: Event) {
-      if (evt.target.files.length > 0) {
-        this.$emit("fileSelected", evt.target.files[0]);
+      if (typeof evt.target != "undefined") {
+        if (evt.target.files.length > 0) {
+          this.$emit("fileSelected", evt.target.files[0]);
+        }
       }
     },
   },
