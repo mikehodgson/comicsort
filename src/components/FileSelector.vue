@@ -8,22 +8,24 @@
     @change="fileChanged"
   />
 </template>
-<script lang="ts">
-export default {
-  data() {
-    return {
-      files: [],
-    };
-  },
-  emits: ["fileSelected"],
-  methods: {
-    fileChanged: function (evt: Event) {
-      if (typeof evt.target != "undefined") {
-        if (evt.target.files.length > 0) {
-          this.$emit("fileSelected", evt.target.files[0]);
-        }
+<script lang="ts" setup>
+  interface HTMLInputEvent extends Event {
+    target: HTMLInputElement & EventTarget;
+  }
+
+  defineProps({
+    files: Array,
+  });
+
+  const emits = defineEmits(["fileSelected", "fileChanged"]);
+
+  const fileChanged = (evt: Event) => {
+    const htmlInputEvent = evt as HTMLInputEvent;
+
+    if (typeof htmlInputEvent?.target?.files?.length != "undefined") {
+      if (htmlInputEvent?.target?.files?.length > 0) {
+        emits("fileSelected", htmlInputEvent.target.files[0]);
       }
-    },
-  },
-};
+    }
+  };
 </script>

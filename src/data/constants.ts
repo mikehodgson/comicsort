@@ -1,7 +1,9 @@
-const APPNAME = "ComicSort";
-const VERSION = "1.0";
+const APPNAME: string = "ComicSort";
+const VERSION: string = "1.0";
+const DEFAULT_CHUNK_SIZE: number = 90;
 
 export default {
   APPNAME: APPNAME,
   VERSION: VERSION,
+  DEFAULT_CHUNK_SIZE: DEFAULT_CHUNK_SIZE
 };

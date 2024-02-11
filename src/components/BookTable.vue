@@ -1,6 +1,8 @@
 <template>
+  <h2 class="text-2xl mt-4 mb-4 font-bold">{{ title }}</h2>
+  <hr class="border-black" />
   <table class="min-w-full" v-if="books.length > 0">
-    <thead class="border-b border-blue-900">
+    <thead class="border-b border-gray-400">
       <tr>
         <th class="font-medium text-gray-900 px-4 py-2 text-left">Publisher</th>
         <th class="font-medium text-gray-900 px-4 py-2 text-left">Title</th>
@@ -29,15 +31,23 @@
   </table>
   <p class="font-bold" v-else>No data file selected.</p>
 </template>
-<script lang="ts">
-import dayjs from "dayjs";
-export default {
-  props: ["books"],
-  methods: {
-    formatDate(dateString: any) {
-      const date = dayjs(dateString);
-      return date.format("YYYY-MM-DD");
-    },
+<script setup lang="ts">
+import Book from "@/model";
+import { useDateFormat } from "@vueuse/core";
+import { type PropType } from "vue";
+
+defineProps({
+  books: {
+    type: Array as PropType<Book[]>,
+    default: () => [],
   },
+  title: {
+    type: String,
+    default: () => '',
+  }
+});
+
+const formatDate = (dt: Date) => {
+  return useDateFormat(dt, "YYYY-MM-DD");
 };
 </script>

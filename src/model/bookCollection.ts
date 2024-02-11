@@ -5,7 +5,11 @@ class BookCollection {
   books: Book[] = [];
 
   loadFromText(csvText: any) {
-    const rows = Papa.parse(csvText, { header: true, dynamicTyping: true });
+    const rows = Papa.parse(csvText, {
+      header: true,
+      dynamicTyping: true,
+      quoteChar: '"',
+    });
     this.books = [];
 
     for (let i = 0; i < rows.data.length; i++) {
