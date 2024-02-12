@@ -1,8 +1,16 @@
 import Book from "./book";
 import Papa from "papaparse";
 
-class BookCollection {
-  books: Book[] = [];
+interface IBookCollection {
+  books: Book[]
+}
+
+class BookCollection implements IBookCollection {
+  books: Book[] = [] as Book[];
+
+  constructor(books: Book[]) {
+    this.books = books || [] as Book[];
+  }
 
   loadFromText(csvText: any) {
     const rows = Papa.parse(csvText, {
@@ -35,3 +43,4 @@ class BookCollection {
 }
 
 export default BookCollection;
+export { type IBookCollection, BookCollection }
