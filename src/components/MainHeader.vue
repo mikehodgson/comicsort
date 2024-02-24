@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppConstants from "@/data/constants";
+  import AppConstants from "@/data/constants";
 </script>
 
 <template>
