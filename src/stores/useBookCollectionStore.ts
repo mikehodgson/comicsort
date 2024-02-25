@@ -3,9 +3,11 @@ import { defineStore } from "pinia";
 import { ref, type Ref, computed, type ComputedRef } from "vue";
 import Papa from "papaparse";
 import BookCollection from "@/model/bookCollection";
+import { useStorage } from "@vueuse/core";
 
 export const useBookCollectionStore = defineStore("bookCollection", () => {
-  const collection: Ref<BookCollection> = ref(new BookCollection([]));
+  const STORE_NAME = "bookcollection";
+  const collection: Ref<BookCollection> = useStorage(STORE_NAME, new BookCollection([]));
   const booksPerBox: Ref<number> = ref(90);
 
   const boxes: ComputedRef<Book[][]> = computed(() => {
@@ -83,7 +85,7 @@ export const useBookCollectionStore = defineStore("bookCollection", () => {
       quoteChar: '"',
     });
 
-    collection.value.books = [];
+    clearCollection();
 
     for (let i = 0; i < rows.data.length; i++) {
       const b = new Book(rows.data[i]);
@@ -91,5 +93,9 @@ export const useBookCollectionStore = defineStore("bookCollection", () => {
     }
   };
 
-  return { boxes, collection, booksPerBox, loadBooks };
+  const clearCollection = () => {
+    collection.value.books = [];
+  }
+
+  return { boxes, collection, booksPerBox, loadBooks, clearCollection };
 });

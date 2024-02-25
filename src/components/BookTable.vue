@@ -6,24 +6,24 @@
   <table class="min-w-full" v-if="books.length > 0">
     <thead class="border-b border-gray-400">
       <tr>
-        <th class="font-medium text-black px-4 py-2 text-left">Publisher</th>
-        <th class="font-medium text-black px-4 py-2 text-left">Title</th>
-        <th class="font-medium text-black px-4 py-2 text-left">Issue</th>
-        <th class="font-medium text-black px-4 py-2 text-left">Release Date</th>
+        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Publisher</th>
+        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Title</th>
+        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Issue</th>
+        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Release Date</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="book in books" :key="book.issue" class="border-b">
-        <td class="text-black font-normal px-4 py-2 whitespace-nowrap">
+        <td class="text-black font-normal px-4 py-1 whitespace-nowrap">
           {{ book.publisher }}
         </td>
-        <td class="text-black font-normal px-4 py-2 whitespace-nowrap">
+        <td class="text-black font-normal px-4 py-1 whitespace-nowrap">
           {{ book.series }}
         </td>
-        <td class="text-black font-normal px-4 py-2 whitespace-nowrap">
+        <td class="text-black font-normal px-4 py-1 whitespace-nowrap">
           {{ book.issue }}
         </td>
-        <td class="text-black font-normal px-4 py-2 whitespace-nowrap">
+        <td class="text-black font-normal px-4 py-1 whitespace-nowrap">
           {{ formatDate(book.release_date).value }}
         </td>
       </tr>

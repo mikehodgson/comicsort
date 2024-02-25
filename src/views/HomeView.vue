@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="grid gap-8 grid-flow-col auto-cols-max">
+    <div class="grid gap-8 grid-flow-col auto-cols-max no-print">
       <div>
         <p>Please select the CSV file containing your comic book collection</p>
         <FileSelector @fileSelected="onFileSelected" />
@@ -18,6 +18,11 @@
       </div>
       <div>
         <p>Books Loaded: <strong>{{ collection.books.length }}</strong></p>
+        <button
+          class="px-8 py-2 my-2 bg-blue-100 border-2 border-blue-600 bg-opacity-50"
+          @click="bookCollectionStore.clearCollection()"
+          style="height: 50px !important;"
+        >Clear Collection</button>
       </div>
       <div>
         Boxes required: <strong>{{ boxes.length }}</strong>
