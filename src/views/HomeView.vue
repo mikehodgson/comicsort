@@ -1,19 +1,28 @@
 <template>
   <main>
-    <FileSelector @fileSelected="onFileSelected" />
-    <!--  -->
-    <h4>Books Loaded: {{ collection.books.length }}</h4>
-    <p>
-      Books per box:
-      <input
-        v-model="booksPerBox"
-        type="number"
-        min="50"
-        max="200"
-        class="padding border border-grey-300 text-sm rounded-lg block p-1.5"
-      />
-    </p>
-    <p>Boxes required: {{ boxes.length }}</p>
+    <div class="grid gap-8 grid-flow-col auto-cols-max">
+      <div>
+        <p>Please select the CSV file containing your comic book collection</p>
+        <FileSelector @fileSelected="onFileSelected" />
+      </div>
+      <div class="">
+        <p>Books per box:</p>
+        <input
+          v-model="booksPerBox"
+          type="number"
+          min="50"
+          max="200"
+          class="border-solid border-2 border-gray-300 px-2 py-2 my-2 bg-opacity-50"
+          style="height: 50px !important;"
+        />
+      </div>
+      <div>
+        <p>Books Loaded: <strong>{{ collection.books.length }}</strong></p>
+      </div>
+      <div>
+        Boxes required: <strong>{{ boxes.length }}</strong>
+      </div>
+    </div>
     <BookTable
       v-for="(box, index) in boxes"
       :key="JSON.stringify(box)"

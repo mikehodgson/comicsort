@@ -24,7 +24,7 @@
           {{ book.issue }}
         </td>
         <td class="text-black font-normal px-4 py-2 whitespace-nowrap">
-          {{ formatDate(book.release_date) }}
+          {{ formatDate(book.release_date).value }}
         </td>
       </tr>
     </tbody>
@@ -32,7 +32,7 @@
   <p class="font-bold" v-else>No data file selected.</p>
 </template>
 <script setup lang="ts">
-  import Book from "@/model";
+  import Book from "@/model/book";
   import { useDateFormat } from "@vueuse/core";
   import { type PropType } from "vue";
 
