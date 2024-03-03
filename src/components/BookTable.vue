@@ -6,10 +6,26 @@
   <table class="min-w-full" v-if="books.length > 0">
     <thead class="border-b border-gray-400">
       <tr>
-        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Publisher</th>
-        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Title</th>
-        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Issue</th>
-        <th class="font-medium text-black px-4 py-2 text-left whitespace-nowrap">Release Date</th>
+        <th
+          class="font-medium text-black px-4 py-2 text-left whitespace-nowrap"
+        >
+          Publisher
+        </th>
+        <th
+          class="font-medium text-black px-4 py-2 text-left whitespace-nowrap"
+        >
+          Title
+        </th>
+        <th
+          class="font-medium text-black px-4 py-2 text-left whitespace-nowrap"
+        >
+          Issue
+        </th>
+        <th
+          class="font-medium text-black px-4 py-2 text-left whitespace-nowrap"
+        >
+          Release Date
+        </th>
       </tr>
     </thead>
     <tbody>

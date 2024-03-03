@@ -7,7 +7,10 @@ import { useStorage } from "@vueuse/core";
 
 export const useBookCollectionStore = defineStore("bookCollection", () => {
   const STORE_NAME = "bookcollection";
-  const collection: Ref<BookCollection> = useStorage(STORE_NAME, new BookCollection([]));
+  const collection: Ref<BookCollection> = useStorage(
+    STORE_NAME,
+    new BookCollection([]),
+  );
   const booksPerBox: Ref<number> = ref(90);
 
   const boxes: ComputedRef<Book[][]> = computed(() => {
@@ -95,7 +98,7 @@ export const useBookCollectionStore = defineStore("bookCollection", () => {
 
   const clearCollection = () => {
     collection.value.books = [];
-  }
+  };
 
   return { boxes, collection, booksPerBox, loadBooks, clearCollection };
 });

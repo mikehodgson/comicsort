@@ -1,10 +1,8 @@
 <template>
-  <Suspense>
-    <div class="container mx-auto">
-      <MainHeader />
-      <RouterView />
-    </div>
-  </Suspense>
+  <div class="container mx-auto">
+    <MainHeader />
+    <RouterView />
+  </div>
 </template>
 
 <script setup lang="ts">

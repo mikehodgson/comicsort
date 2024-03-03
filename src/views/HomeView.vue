@@ -13,16 +13,20 @@
           min="50"
           max="200"
           class="border-solid border-2 border-gray-300 px-2 py-2 my-2 bg-opacity-50"
-          style="height: 50px !important;"
+          style="height: 50px !important"
         />
       </div>
       <div>
-        <p>Books Loaded: <strong>{{ collection.books.length }}</strong></p>
+        <p>
+          Books Loaded: <strong>{{ collection.books.length }}</strong>
+        </p>
         <button
           class="px-8 py-2 my-2 bg-blue-100 border-2 border-blue-600 bg-opacity-50"
           @click="bookCollectionStore.clearCollection()"
-          style="height: 50px !important;"
-        >Clear Collection</button>
+          style="height: 50px !important"
+        >
+          Clear Collection
+        </button>
       </div>
       <div>
         Boxes required: <strong>{{ boxes.length }}</strong>
