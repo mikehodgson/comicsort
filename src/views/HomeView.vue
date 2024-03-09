@@ -2,7 +2,6 @@
   <main>
     <div class="grid gap-8 grid-flow-col auto-cols-max no-print">
       <div>
-        <p>Please select the CSV file containing your comic book collection</p>
         <FileSelector @fileSelected="onFileSelected" />
       </div>
       <div class="">
