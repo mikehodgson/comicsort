@@ -16,6 +16,10 @@ describe("App component", () => {
 
   it("should be mountable", async () => {
     const wrapper = shallowMount(App);
-    expect(document.title).toContain(AppConstants.APPNAME);
+    expect(wrapper.exists()).toBe(true);
   });
+
+  it("should have the correct title", async () => {
+    expect(document.title).toContain(AppConstants.APPNAME);
+  })
 });
