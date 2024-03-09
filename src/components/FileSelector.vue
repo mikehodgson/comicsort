@@ -1,5 +1,9 @@
 <template>
-  <p><label for="selectedFiles">Please select the CSV file containing your comic book collection</label></p>
+  <p>
+    <label for="selectedFiles"
+      >Please select the CSV file containing your comic book collection</label
+    >
+  </p>
   <input
     type="file"
     class="border-solid border-2 border-gray-300 px-2 py-2 my-2 bg-opacity-50"

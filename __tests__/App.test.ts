@@ -21,5 +21,5 @@ describe("App component", () => {
 
   it("should have the correct title", async () => {
     expect(document.title).toContain(AppConstants.APPNAME);
-  })
+  });
 });

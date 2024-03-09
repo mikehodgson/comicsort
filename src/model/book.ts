@@ -7,8 +7,7 @@ class Book {
   variant: string = "";
 
   constructor(data?: any) {
-    if (data)
-    {
+    if (data) {
       this.publisher = data["Publisher"] ? data["Publisher"] : "";
       this.series = data["Series"] ? data["Series"] : "";
       this.issue = data["Issue Nr"] || data["Issue"] || 1;

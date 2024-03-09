@@ -51,7 +51,9 @@ describe("Book class", () => {
 
   it("should set the release_date when an initial value is supplied", async () => {
     const book = new Book(mockBookCSVRecord);
-    expect(book.release_date).toEqual(new Date(mockBookCSVRecord["Release Date"]));
+    expect(book.release_date).toEqual(
+      new Date(mockBookCSVRecord["Release Date"]),
+    );
   });
 
   it("should set the variant when an initial value is supplied", async () => {

@@ -7,7 +7,7 @@ interface IBookCollection {
 class BookCollection implements IBookCollection {
   books: Book[] = [] as Book[];
 
-  constructor(books: Book[]) {
+  constructor(books?: Book[]) {
     this.books = books || ([] as Book[]);
   }
 }
