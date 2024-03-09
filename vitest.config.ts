@@ -5,6 +5,7 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
+      environment: "jsdom",
       alias: {
         '@/': new URL('./src/', import.meta.url).pathname
       }
