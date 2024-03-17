@@ -1,4 +1,4 @@
-import { defineConfig, mergeConfig } from "vitest/config";
+import { defineConfig, mergeConfig, configDefaults } from "vitest/config";
 import viteConfig from "./vite.config";
 
 export default mergeConfig(
@@ -7,7 +7,10 @@ export default mergeConfig(
     test: {
       environment: "jsdom",
       alias: {
-        '@/': new URL('./src/', import.meta.url).pathname
+        "@/": new URL("./src/", import.meta.url).pathname,
+      },
+      coverage: {
+        exclude: [...configDefaults.exclude, "*.config.js", ".eslintrc.cjs", "src/main.ts", "__tests__"]
       }
     },
   }),

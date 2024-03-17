@@ -1,6 +1,7 @@
 <template>
   <div class="container mx-auto">
     <MainHeader />
+
     <RouterView />
   </div>
 </template>
