@@ -10,8 +10,8 @@ export default mergeConfig(
         "@/": new URL("./src/", import.meta.url).pathname,
       },
       coverage: {
-        exclude: [...configDefaults.exclude, "*.config.js", ".eslintrc.cjs", "src/main.ts", "__tests__"]
-      }
+        exclude: [...configDefaults.exclude, "*.config.js", ".eslintrc.cjs", "src/main.ts", "__tests__"],
+      },
     },
   }),
 );

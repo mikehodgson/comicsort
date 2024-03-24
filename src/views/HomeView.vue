@@ -2,7 +2,7 @@
   <main>
     <div class="grid gap-8 grid-flow-col auto-cols-max no-print">
       <div>
-        <FileSelector @fileSelected="onFileSelected" />
+        <FileSelector @file-selected="onFileSelected" />
       </div>
       <div class="">
         <p>Books per box:</p>
@@ -47,9 +47,7 @@
   import { storeToRefs } from "pinia";
 
   const bookCollectionStore = useBookCollectionStore();
-  const { collection, boxes, booksPerBox } = storeToRefs(
-    useBookCollectionStore(),
-  );
+  const { collection, boxes, booksPerBox } = storeToRefs(useBookCollectionStore());
 
   const onFileSelected = (file: File) => {
     const fr = new FileReader();

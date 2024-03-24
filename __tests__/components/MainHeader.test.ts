@@ -2,7 +2,7 @@ import { it, describe, expect, beforeEach } from "vitest";
 import { shallowMount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
 
-import App from "@/App.vue";
+import MainHeader from "@/components/MainHeader.vue";
 import AppConstants from "@/data/constants";
 
 describe("App component", () => {
@@ -11,15 +11,16 @@ describe("App component", () => {
   });
 
   it("should exist", () => {
-    expect(App).toBeDefined();
+    expect(MainHeader).toBeDefined();
   });
 
   it("should be mountable", async () => {
-    const wrapper = shallowMount(App);
+    const wrapper = shallowMount(MainHeader);
     expect(wrapper.exists()).toBe(true);
   });
 
   it("should have the correct title", async () => {
-    expect(document.title).toContain(AppConstants.APPNAME);
+    const wrapper = shallowMount(MainHeader);
+    expect(wrapper.get("#app-title").text()).toContain(AppConstants.appName);
   });
 });

@@ -1,8 +1,6 @@
 <template>
   <p>
-    <label for="selectedFiles"
-      >Please select the CSV file containing your comic book collection</label
-    >
+    <label for="selectedFiles">Please select the CSV file containing your comic book collection</label>
   </p>
   <input
     type="file"
@@ -13,22 +11,16 @@
   />
 </template>
 <script lang="ts" setup>
-  interface HTMLInputEvent extends Event {
-    target: HTMLInputElement & EventTarget;
-  }
+  import type HTMLInputEvent from '@/model/HtmlInputEvent';
 
-  defineProps({
-    files: Array,
-  });
-
-  const emits = defineEmits(["fileSelected", "fileChanged"]);
+  const emits = defineEmits(["file-selected"]);
 
   const fileChanged = (evt: Event) => {
     const htmlInputEvent = evt as HTMLInputEvent;
 
     if (typeof htmlInputEvent?.target?.files?.length != "undefined") {
       if (htmlInputEvent?.target?.files?.length > 0) {
-        emits("fileSelected", htmlInputEvent.target.files[0]);
+        emits("file-selected", htmlInputEvent.target.files[0]);
       }
     }
   };

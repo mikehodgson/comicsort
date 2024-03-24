@@ -7,10 +7,7 @@ import { useStorage } from "@vueuse/core";
 
 export const useBookCollectionStore = defineStore("bookCollection", () => {
   const STORE_NAME = "bookcollection";
-  const collection: Ref<BookCollection> = useStorage(
-    STORE_NAME,
-    new BookCollection([]),
-  );
+  const collection: Ref<BookCollection> = useStorage(STORE_NAME, new BookCollection([]));
   const booksPerBox: Ref<number> = ref(90);
 
   const boxes: ComputedRef<Book[][]> = computed(() => {
@@ -49,10 +46,7 @@ export const useBookCollectionStore = defineStore("bookCollection", () => {
     let currentBox: Book[] = [];
     for (const group of groups) {
       // If current group exceeds box capacity or adding it would exceed the capacity
-      if (
-        group.length > booksPerBox.value ||
-        currentBox.length + group.length > booksPerBox.value
-      ) {
+      if (group.length > booksPerBox.value || currentBox.length + group.length > booksPerBox.value) {
         // Start a new box for the group if the current box isn't empty
         if (currentBox.length > 0) {
           boxes.push(currentBox);

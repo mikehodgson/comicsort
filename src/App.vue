@@ -11,5 +11,5 @@
   import MainHeader from "@/components/MainHeader.vue";
   import AppConstants from "@/data/constants";
 
-  document.title = `${AppConstants.APPNAME} ${AppConstants.VERSION}`;
+  document.title = `${AppConstants.appName} ${AppConstants.version}`;
 </script>
