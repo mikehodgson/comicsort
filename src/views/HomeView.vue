@@ -11,8 +11,7 @@
           type="number"
           min="50"
           max="200"
-          class="border-solid border-2 border-gray-300 px-2 py-2 my-2 bg-opacity-50"
-          style="height: 50px !important"
+          class="border-solid border-2 border-gray-300 px-2 py-2 my-2 bg-opacity-50 py-3 rounded shadow"
         />
       </div>
       <div>
@@ -20,9 +19,8 @@
           Books Loaded: <strong>{{ collection.books.length }}</strong>
         </p>
         <button
-          class="px-8 py-2 my-2 bg-blue-100 border-2 border-blue-600 bg-opacity-50"
+          class="bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-3 px-4 border-2 border-red-500 hover:border-transparent rounded my-2 shadow"
           @click="bookCollectionStore.clearCollection()"
-          style="height: 50px !important"
         >
           Clear Collection
         </button>
@@ -47,7 +45,7 @@
   import { storeToRefs } from "pinia";
 
   const bookCollectionStore = useBookCollectionStore();
-  const { collection, boxes, booksPerBox } = storeToRefs(useBookCollectionStore());
+  const { collection, boxes, booksPerBox } = storeToRefs(bookCollectionStore);
 
   const onFileSelected = (file: File) => {
     const fr = new FileReader();
@@ -58,3 +56,8 @@
     fr.readAsText(file);
   };
 </script>
+<style scoped>
+  .big-input {
+    height: 50px !important;
+  }
+</style>
