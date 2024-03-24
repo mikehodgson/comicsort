@@ -56,8 +56,3 @@
     fr.readAsText(file);
   };
 </script>
-<style scoped>
-  .big-input {
-    height: 50px !important;
-  }
-</style>
