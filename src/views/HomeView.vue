@@ -19,6 +19,7 @@
           Books Loaded: <strong>{{ collection.books.length }}</strong>
         </p>
         <button
+          id="clear-collection-button"
           class="bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-3 px-4 border-2 border-red-500 hover:border-transparent rounded my-2 shadow"
           @click="bookCollectionStore.clearCollection()"
         >

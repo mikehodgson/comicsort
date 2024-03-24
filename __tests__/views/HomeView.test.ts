@@ -1,10 +1,11 @@
-import { it, describe, expect, beforeEach } from "vitest";
+import { it, describe, expect, beforeEach, vi } from "vitest";
 import { shallowMount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
 
 import HomeView from "@/views/HomeView.vue";
 import FileSelector from "@/components/FileSelector.vue";
 import BookTable from "@/components/BookTable.vue";
+import { useBookCollectionStore } from "@/stores/useBookCollectionStore";
 
 describe("App component", () => {
   beforeEach(() => {
@@ -24,9 +25,9 @@ describe("App component", () => {
     const wrapper = shallowMount(HomeView, {
       global: {
         stubs: {
-          FileSelector: false
-        }
-      }
+          FileSelector: false,
+        },
+      },
     });
     expect(wrapper.findAllComponents(FileSelector).length).toBe(1);
   });
@@ -35,10 +36,20 @@ describe("App component", () => {
     const wrapper = shallowMount(HomeView, {
       global: {
         stubs: {
-          BookTable: false
-        }
-      }
+          BookTable: false,
+        },
+      },
     });
     expect(wrapper.findAllComponents(BookTable).length).toBe(0);
+  });
+
+  describe("Clear Collection button", () => {
+    it("should call the clearCollection action on the store", async () => {
+      const wrapper = shallowMount(HomeView);
+      const bookCollectionStore = useBookCollectionStore();
+      const spy = vi.spyOn(bookCollectionStore, "clearCollection");
+      await wrapper.find("#clear-collection-button").trigger("click");
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
