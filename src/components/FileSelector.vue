@@ -2,16 +2,10 @@
   <p>
     <label for="selectedFiles">Please select the CSV file containing your comic book collection</label>
   </p>
-  <input
-    type="file"
-    class="form-input"
-    ref="selectedFiles"
-    id="selectedFiles"
-    @change="fileChanged"
-  />
+  <input type="file" class="form-input" ref="selectedFiles" id="selectedFiles" @change="fileChanged" />
 </template>
 <script lang="ts" setup>
-  import type HTMLInputEvent from '@/model/HtmlInputEvent';
+  import type HTMLInputEvent from "@/model/HtmlInputEvent";
 
   const emits = defineEmits(["file-selected"]);
 

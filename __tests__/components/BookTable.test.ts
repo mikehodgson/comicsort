@@ -42,18 +42,18 @@ describe("App component", () => {
 
   it("should display the book table when an array of books is provided", () => {
     const wrapper = shallowMount(BookTable, {
-        props: {
-            books: mockBookArray
-        }
+      props: {
+        books: mockBookArray,
+      },
     });
     expect(wrapper.findAll("#book-table").length).toBe(1);
   });
   it("should display a row for every book", () => {
     const wrapper = shallowMount(BookTable, {
-        props: {
-            books: mockBookArray
-        }
+      props: {
+        books: mockBookArray,
+      },
     });
     expect(wrapper.findAll("#book-table > tbody > tr").length).toBe(mockBookArray.length);
-  })
+  });
 });
