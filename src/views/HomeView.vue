@@ -6,13 +6,7 @@
       </div>
       <div class="">
         <p>Books per box:</p>
-        <input
-          v-model="booksPerBox"
-          type="number"
-          min="50"
-          max="200"
-          class="border-solid border-2 border-gray-300 px-2 py-2 my-2 bg-opacity-50 py-3 rounded shadow"
-        />
+        <input v-model="booksPerBox" type="number" min="50" max="200" class="form-input" />
       </div>
       <div>
         <p>
@@ -20,9 +14,8 @@
         </p>
         <button
           id="clear-collection-button"
-          class="bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-3 px-4 border-2 border-red-500 hover:border-transparent rounded my-2 shadow"
-          @click="bookCollectionStore.clearCollection()"
-        >
+          class="form-input bg-transparent hover:bg-red-500 text-red-500 hover:text-white hover:border-transparent focus:border-transparent outline-none"
+          @click="bookCollectionStore.clearCollection()">
           Clear Collection
         </button>
       </div>
@@ -34,8 +27,7 @@
       v-for="(box, index) in boxes"
       :key="JSON.stringify(box)"
       v-bind:books="box"
-      :title="'Box #' + (index + 1)"
-    />
+      :title="'Box #' + (index + 1)" />
   </main>
 </template>
 
