@@ -11,6 +11,8 @@ export default mergeConfig(
         "@/": new URL("./src/", import.meta.url).pathname,
       },
       coverage: {
+        provider: "istanbul",
+        reporter: ["text","html"],
         exclude: [
           ...configDefaults.exclude,
           "*.config.js",
