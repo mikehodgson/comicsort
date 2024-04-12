@@ -39,7 +39,7 @@
   }
 
   withDefaults(defineProps<Props>(), {
-    books: () => [],
+    books: () => [] as Book[],
     title: "",
   });
 </script>

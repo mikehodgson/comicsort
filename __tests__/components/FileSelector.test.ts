@@ -23,12 +23,12 @@ describe("App component", () => {
   it("should emit a file-selected event when the file is changed", async () => {
     const wrapper = shallowMount(FileSelector);
     const input = wrapper.find('input[type="file"]');
-    Object.defineProperty(input.element, 'files', {
-        value: [mockCSVFile],
-        writable: false
+    Object.defineProperty(input.element, "files", {
+      value: [mockCSVFile],
+      writable: false,
     });
-    await input.trigger('change');
+    await input.trigger("change");
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted('file-selected')).toBeTruthy();
+    expect(wrapper.emitted("file-selected")).toBeTruthy();
   });
 });

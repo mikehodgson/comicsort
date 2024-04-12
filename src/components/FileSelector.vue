@@ -11,7 +11,7 @@
   />
 </template>
 <script lang="ts" setup>
-  import type HTMLInputEvent from '@/model/HtmlInputEvent';
+  import type HTMLInputEvent from "@/model/HtmlInputEvent";
 
   const emits = defineEmits(["file-selected"]);
 

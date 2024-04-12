@@ -5,12 +5,20 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
+      exclude: [...configDefaults.exclude, ".stryker-tmp/**/*"],
       environment: "jsdom",
       alias: {
         "@/": new URL("./src/", import.meta.url).pathname,
       },
       coverage: {
-        exclude: [...configDefaults.exclude, "*.config.js", ".eslintrc.cjs", "src/main.ts", "__tests__"],
+        exclude: [
+          ...configDefaults.exclude,
+          "*.config.js",
+          ".eslintrc.cjs",
+          "src/main.ts",
+          "__tests__",
+          ".stryker-tmp/**/*",
+        ],
       },
     },
   }),
