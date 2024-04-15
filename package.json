@@ -48,7 +48,7 @@
     "autoprefixer": "^10.4.19",
     "cypress": "^13.7.3",
     "eslint": "^8.57.0",
-    "eslint-plugin-cypress": "^2.15.1",
+    "eslint-plugin-cypress": "^2.15.2",
     "eslint-plugin-vue": "^9.24.1",
     "jsdom": "^24.0.0",
     "msw": "^2.2.13",
