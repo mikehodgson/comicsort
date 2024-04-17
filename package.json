@@ -27,7 +27,7 @@
     "pinia": "^2.1.7",
     "ts-node": "^10.9.2",
     "vue": "^3.4.19",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.2",
@@ -48,17 +48,17 @@
     "autoprefixer": "^10.4.19",
     "cypress": "^13.7.3",
     "eslint": "^8.57.0",
-    "eslint-plugin-cypress": "^2.15.1",
-    "eslint-plugin-vue": "^9.24.1",
+    "eslint-plugin-cypress": "^2.15.2",
+    "eslint-plugin-vue": "^9.25.0",
     "jsdom": "^24.0.0",
-    "msw": "^2.2.13",
+    "msw": "^2.2.14",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "start-server-and-test": "^2.0.3",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
-    "vite": "^5.2.8",
+    "vite": "^5.2.9",
     "vitest": "^1.4.0",
     "vue-tsc": "^2.0.13"
   }

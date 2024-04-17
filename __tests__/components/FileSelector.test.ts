@@ -31,4 +31,28 @@ describe("App component", () => {
     await wrapper.vm.$nextTick();
     expect(wrapper.emitted("file-selected")).toBeTruthy();
   });
+
+  it("should not emit a file-selected event when the file is changed and the list is empty", async () => {
+    const wrapper = shallowMount(FileSelector);
+    const input = wrapper.find('input[type="file"]');
+    Object.defineProperty(input.element, "files", {
+      value: [],
+      writable: false,
+    });
+    await input.trigger("change");
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted("file-selected")).toBeFalsy();
+  });
+
+  it("should not emit a file-selected event if the files array does not exist", async () => {
+    const wrapper = shallowMount(FileSelector);
+    const input = wrapper.find('input[type="file"]');
+    Object.defineProperty(input.element, "files", {
+      value: undefined,
+      writable: false,
+    });
+    await input.trigger("change");
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted("file-selected")).toBeFalsy();
+  });
 });
