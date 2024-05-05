@@ -1,6 +1,9 @@
 import Book from "@/model/book";
+import { readFile } from "fs/promises";
 
-export const mockCSVFile = new File(["content"], "test.csv", { type: "text/csv" });
+const fileData = await readFile('./__tests__/sample.csv')
+
+export const mockCSVFile = new File([fileData], "test.csv", { type: "text/csv" });
 
 export const mockBookCSVRecord = {
   Publisher: "A",
