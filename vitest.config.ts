@@ -12,7 +12,7 @@ export default mergeConfig(
       },
       coverage: {
         provider: "istanbul",
-        reporter: ["text","html"],
+        reporter: ["text", "html"],
         exclude: [
           ...configDefaults.exclude,
           "*.config.js",

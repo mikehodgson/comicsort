@@ -3,7 +3,7 @@ import { it, describe, expect, beforeEach } from "vitest";
 import { useBookCollectionStore } from "@/stores/useBookCollectionStore";
 import { createPinia, setActivePinia } from "pinia";
 
-beforeEach(() => {  
+beforeEach(() => {
   setActivePinia(createPinia());
 });
 
