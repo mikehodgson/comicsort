@@ -76,21 +76,24 @@ export const useBookCollectionStore = defineStore("bookCollection", () => {
   });
 
   const loadBooks = (csvText: any) => {
-    const rows = Papa.parse(csvText, {
-      header: true,
-      dynamicTyping: true,
-      quoteChar: '"',
+    clearCollection().then(() => {
+      const rows = Papa.parse(csvText, {
+        header: true,
+        dynamicTyping: true,
+        quoteChar: '"',
+      });
+      const newRows: Book[] = [] as Book[];
+
+      for (let i = 0; i < rows.data.length; i++) {
+        const b = new Book(rows.data[i]);
+        if (!isNaN(b.issue)) newRows.push(b);
+      }
+
+      collection.value.books = newRows;
     });
-
-    clearCollection();
-
-    for (let i = 0; i < rows.data.length; i++) {
-      const b = new Book(rows.data[i]);
-      if (!isNaN(b.issue)) collection.value.books.push(b);
-    }
   };
 
-  const clearCollection = () => {
+  const clearCollection = async () => {
     collection.value.books = [];
   };
 
